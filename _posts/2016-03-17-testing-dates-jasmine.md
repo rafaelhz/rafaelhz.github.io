@@ -17,7 +17,7 @@ First, take a look at the function below. It's calculating the difference betwee
 {% highlight js %}
 function getDaysBetweenTodayAndADate(date) {
   let today = moment();
-  return date.diff(today); 
+  return date.diff(today, 'days'); 
 }
 {% endhighlight %}
 
@@ -29,15 +29,15 @@ In order to solve this problem, we can use Jasmine Clock to mock the current dat
 {% highlight js %}
 describe('testing dates in js', function () {
 
-beforeEach(() => {
-  let today = moment('2016-01-01').toDate();
-  jasmine.clock().mockDate(today);
-});
+  beforeEach(() => {
+    let today = moment('2016-01-01').toDate();
+    jasmine.clock().mockDate(today);
+  });
 
-it('should return the difference between today', () => {
-  let date = moment('2016-01-05');
-  expect(getDaysBetweenTodayAndADate(date), 4);
-});
+  it('should return the difference between today', () => {
+    let date = moment('2016-01-05');
+    expect(4).toEqual(getDaysBetweenTodayAndADate(date));
+  });
 
 });
 {% endhighlight %}
