@@ -123,3 +123,9 @@ pre {
 		@include rounded(4px);
 	}
 }
+
+@import url(https://fonts.googleapis.com/css?family=Comfortaa);
+
+.logo {
+	font-family: 'Comfortaa', cursive;
+}
